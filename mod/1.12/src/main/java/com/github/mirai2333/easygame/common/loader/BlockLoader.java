@@ -1,4 +1,6 @@
-package com.github.mirai2333.easygame.common.block;
+package com.github.mirai2333.easygame.common.loader;
+
+import com.github.mirai2333.easygame.common.block.BlockChromiteBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -8,16 +10,20 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockLoader {
-	public static Block block = new BlockChromiteBlock().setUnlocalizedName("chromiteBlock");
+	public static Block chromiteblock = new BlockChromiteBlock().setUnlocalizedName("chromiteBlock");
+	//×¢²áblocks
 	public static void register() {
-		ForgeRegistries.BLOCKS.register(block.setRegistryName("chromite_block"));
-		ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		ForgeRegistries.BLOCKS.register(chromiteblock.setRegistryName("chromite_block"));
+		ForgeRegistries.ITEMS.register(new ItemBlock(chromiteblock).setRegistryName(chromiteblock.getRegistryName()));
+		OreDictionary.registerOre("orechromite", chromiteblock);
 	}
+	
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders() {
-		registerRender(block);
+		registerRender(chromiteblock);
 	}
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(Block item) {
