@@ -1,6 +1,8 @@
 package com.github.mirai2333.easygame.client;
 
 import com.github.mirai2333.easygame.common.CommonProxy;
+import com.github.mirai2333.easygame.common.block.BlockLoader;
+import com.github.mirai2333.easygame.common.item.ItemLoader;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -13,7 +15,8 @@ public class ClientProxy extends CommonProxy
     public void preInit(FMLPreInitializationEvent event)
     {
         super.preInit(event);
-        new ItemRenderLoader();
+        ItemLoader.registerRenders();
+        BlockLoader.registerRenders();
     }
 
     @Override

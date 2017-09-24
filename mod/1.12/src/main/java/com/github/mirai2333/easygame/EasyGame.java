@@ -1,5 +1,7 @@
 package com.github.mirai2333.easygame;
 
+import org.apache.logging.log4j.Logger;
+
 import com.github.mirai2333.easygame.common.CommonProxy;
 
 import net.minecraftforge.fml.common.Mod;
@@ -20,11 +22,14 @@ public class EasyGame {
             serverSide = "com.github.mirai2333.easygame.common.CommonProxy")
     public static CommonProxy proxy;
 	
-	@Instance(EasyGame.MODID)
+	private Logger logger;
+	
+	@Instance(MODID)
 	public static EasyGame instance;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
 		proxy.preInit(event);
 	}
 	
@@ -37,4 +42,9 @@ public class EasyGame {
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
+	
+	public Logger getlogger() {
+		return logger;
+	}
+	
 }

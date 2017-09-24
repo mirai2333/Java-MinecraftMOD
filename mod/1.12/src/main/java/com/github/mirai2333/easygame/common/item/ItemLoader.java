@@ -1,6 +1,7 @@
-package com.github.mirai2333.easygame.item;
+package com.github.mirai2333.easygame.common.item;
 
 import net.minecraft.item.Item;
+
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -10,21 +11,18 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 
 public class ItemLoader {
-	public static Item goldenEgg = new ItemGoldenEgg();
-	public ItemLoader(FMLPreInitializationEvent event) {
-		register(goldenEgg,"golden_egg");
-	}
-	public static void register(Item item,String name) {
-		ForgeRegistries.ITEMS.register(goldenEgg.setRegistryName(name));
+	public static Item bestSword = new ItemBestSword().setUnlocalizedName("bestSword");
+	public static void register() {
+		ForgeRegistries.ITEMS.register(bestSword.setRegistryName("best_sword"));
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public static void registerRenders() {
-		registerRender(goldenEgg);
+		registerRender(bestSword);
 	}
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(Item item) {
-		ModelResourceLocation model = new ModelResourceLocation(item.getRegistryName(),"inventory");
-		ModelLoader.setCustomModelResourceLocation(item,0,model);
+		ModelLoader.setCustomModelResourceLocation(item,0,
+				new ModelResourceLocation(item.getRegistryName(),"inventory"));
 	}
 }

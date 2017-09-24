@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "easygame:chromite_block" }
+    }
+}
