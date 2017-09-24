@@ -28,6 +28,6 @@ public class BlockLoader {
 	@SideOnly(Side.CLIENT)
 	private static void registerRender(Block item) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(item), 0,
-				new ModelResourceLocation(item.getRegistryName(),"inventory"));
+				new ModelResourceLocation(item.getRegistryName(),"normal"));
 	}
 }
